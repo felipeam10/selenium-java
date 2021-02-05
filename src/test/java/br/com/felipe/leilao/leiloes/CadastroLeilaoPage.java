@@ -1,25 +1,20 @@
 package br.com.felipe.leilao.leiloes;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CadastroLeilaoPage {
+import br.com.felipe.leilao.PageObject;
 
-	private WebDriver browser;
+public class CadastroLeilaoPage extends PageObject {
+
+	
 	
 	private static final String URL_CADASTRO_LEILAO = "http://localhost:8080/leiloes/new";
 
 	public CadastroLeilaoPage(WebDriver browser) {
-		this.browser = browser;
+		super(browser);
 	}
 	
-	public void fechar() {
-		this.browser.quit();
-		
-	}
-
 	public LeiloesPage cadastrarLeilao(String nome, String valorInicial, String dataAbertura) {
 		this.browser.findElement(By.id("nome")).sendKeys(nome);
 		this.browser.findElement(By.id("valorInicial")).sendKeys(valorInicial);
